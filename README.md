@@ -1,2 +1,3 @@
 # GigaGukBab.github.io
-TIL github for Krafton Jungle 9th
+
+TIL on Krafton Jungle 9th
