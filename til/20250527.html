@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>20250527 TIL</title>
+    <meta name="description" content="2025년 5월 27일 (화)의 TIL" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <h1>공부 주제</h1>
+      <h2>컴퓨터 시스템 2장 2.2 정수의 표시</h2>
+      <p>
+        이해하고 넘어갔던 부분, 주요하다고 생각하는 개념 키워드, 개인적인
+        Aha-point
+      </p>
+      <hr />
+      <div>
+        <h2>2.2 정수의 표시</h2>
+        <ul>
+          <li>
+            <p>인코딩(Encoding)의 정의를 알고 있고, 예시를 들어볼 수 있는가?</p>
+          </li>
+          <li>
+            <p>bit를 사용하여 정수를 인코딩(표현)하는 방법</p>
+          </li>
+          <ul>
+            <li><p>unsigned representation (부호 없는 표현)</p></li>
+            <li><p>two's complement representation (2의 보수 표현)</p></li>
+          </ul>
+        </ul>
+        <div>
+          <h3>2.2.1 정수형 데이터 타입</h3>
+          <ul>
+            <li>
+              <p>
+                컴퓨터가 정수를 어떻게 encoding하고 사용하는지 정확히 정의하고
+                특성을 분석하기 위해 인간이 사용하는 수학적 용어들을 나열한 표
+                (컴퓨터는 할일이 많구나...)
+              </p>
+            </li>
+            <img
+              src="/static/20250527/how_computer_encode_and_calc.jpg"
+              width="650"
+            />
+            <li>
+              <p>32비트 프로그램에서의 C 정수형 자료형의 일반적인 범위</p>
+            </li>
+            <img src="/static/20250527/data_range_32_bits.jpg" width="650" />
+            <li>
+              <p>64비트 프로그램에서의 C 정수형 자료형의 일반적인 범위</p>
+            </li>
+            <img src="/static/20250527/data_range_64_bits.jpg" width="650" />
+            <li><p>왜 long을 사용하는가?</p></li>
+            <li><p>long은 int type에만 사용가능한가?</p></li>
+            <li><p>음수의 범위가 양의 범위보다 1이 넓은 것에 주목하자.</p></li>
+            <li>
+              <p>C 정수 자료형들의 최소한의 보장된 범위</p>
+            </li>
+            <ul>
+              <li>
+                <p>
+                  고정 타입인 int32_t, uint64_t을 제외하면 C표준은 양수와 음수
+                  범위를 대칭적으로 보장한다.
+                </p>
+              </li>
+            </ul>
+            <img
+              src="/static/20250527/ensured_data_types_in_c.jpg"
+              width="650"
+            />
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.2.2 비부호형의 인코딩 (unsigned encoding)</h3>
+          <ul>
+            <li>
+              <p>B2Uw: Binary → Unsigned 정수 (w비트 → 0 ~ 2ʷ−1 숫자)</p>
+            </li>
+            <li>
+              <p>U2Bw:Unsigned 정수 → Binary (0 ~ 2ʷ−1 숫자 → w비트)</p>
+            </li>
+            <li><p>위 두개가 bijection인 것을 이해했는가?</p></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.2.3 2의 보수(2's complement) 인코딩</h3>
+          <ul>
+            <li>
+              <p>비트 패턴은 동일하지만 부호 비트가 음수값을 갖는 성질</p>
+            </li>
+            <li>
+              <p>\( TMIN_w = -2^{w-1} \), \( TMAX_w = 2^{w-1}-1 \)</p>
+            </li>
+            <ul>
+              <li>
+                <p>\( TMIN_4 = B2T_4([1000]) = -2^3 = -8 \)</p>
+                <p>
+                  \( TMAX_4 = B2T_4([0111]) = 0 \times 2^3 + 1 \times 2^2 + 1
+                  \times 2^1 + 1 \times 2^0 = 7 \)
+                </p>
+              </li>
+            </ul>
+            <li><p>2의 보수의 범위는 비대칭적이다.</p></li>
+            <li>
+              <p>
+                2의 보수의 비대칭성은 부호 비트 1이 음수를 표시하고, 나머지가
+                비음수를 표시하기 때문이다.
+              </p>
+            </li>
+            <li>
+              <p>
+                unsigned(비부호형)의 최대값은 2의 보수(2's complement) 최대값의
+                두 배보다 1 크다.
+              </p>
+            </li>
+            <ul>
+              <li>
+                <p>\( UMAX = 2TMax + 1 \)</p>
+              </li>
+            </ul>
+            <img src="/static/20250527/bit_display_table.jpg" , height="350" />
+            <li>
+              <p>
+                -1이 unsigned에서 bit가 모두 1인 \( UMax \) 같은 비트 표시를
+                같는 것에 주목하자.
+              </p>
+            </li>
+            <ul>
+              <li>
+                <p>
+                  32bits를 사용하는 컴퓨터에서 unsigned type의 정수는 최대값으로
+                  <code>0xFFFFFFFF</code> 를 가질 수 있지만, 다르게 해석하여
+                  signed type으로 보면 -1도 동일한 비트 패턴을 가지게 된다.
+                </p>
+              </li>
+            </ul>
+            <li>
+              <p>binary -> 2's complement를 만드는 방식에 대한 이해</p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.2.4 비부호형(unsigned)와 부호형(signed) 간의 변환</h3>
+          <ul>
+            <li><p>casting의 개념</p></li>
+            <ul>
+              <li><p>int(signed) -> unsigned</p></li>
+              <li><p>unsigned -> int(signed)</p></li>
+            </ul>
+            <li>
+              <p>
+                캐스팅(casting)의 효과가 비트의 값들은 동일하게 유지하지만,
+                비트를 해석하는 방법은 변경한다.
+              </p>
+            </li>
+            <li>
+              <p>
+                -12,345의 16비트 2의 부호 표시가 53,191의 16비트 unsigned 표시와
+                동일하다.
+              </p>
+            </li>
+            <li>
+              <p>
+                32비트 워드 크기에 대해 unsigned 형태인 4,294,967,295(\(
+                UMax_{32} \))를 표시하는 비트 패턴과 -1의 2의 보수 표시가
+                동일하다는 것을 알 수 있다.
+              </p>
+            </li>
+            <ul>
+              <li>
+                <p>
+                  C에서는 unsigned int를 int로 캐스팅할 때, 비트 자체는 바뀌지
+                  않고, 해석 방식만 바뀐다.
+                </p>
+              </li>
+            </ul>
+          </ul>
+          <h3>bread crumbs from core time</h3>
+          <img src="/static/20250527/중간정리.jpg" height="550" />
+          <img src="/static/20250527/최종정리.jpg" height="450" />
+        </div>
+      </div>
+      <hr />
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
