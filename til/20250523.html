@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>20250523 TIL</title>
+    <meta name="description" content="2025년 5월 23일 (금)의 TIL" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1>공부 주제</h1>
+      <h2>컴퓨터 시스템 2장 2.1</h2>
+      <p>
+        이해하고 넘어갔던 부분, 주요하다고 생각하는 개념 키워드, 개인적인
+        Aha-point
+      </p>
+      <hr />
+      <div>
+        <div>
+          <h2>2.1 정보의 저장</h2>
+          <ul>
+            <li>
+              <p>
+                물리적으로 구현되어있는 공간이 어떻게 가상 주소 공간으로 사용될
+                수 있는지 알고 있는가?
+              </p>
+            </li>
+            <li>
+              <p>
+                메모리를 가상메모리라고 하는 거대한 바이트의 배열로 취급한다라는
+                말이 머릿속에 그림으로 그려지는가?
+              </p>
+              <img
+                src="/static//20250523/virtual_address.jpg"
+                width="700"
+                height="300"
+              />
+            </li>
+            <li>
+              <p>
+                바이트 배열에 구조체 struct로 int type과 char 타입을 적재했을 때
+                어떻게 적재되는지 머릿속에 그림이 그려지는가?
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.1 16진수 표시</h3>
+          <ul>
+            <li>
+              <p>2진수, 10진수, 16진수의 사이의 변환 과정</p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.2 데이터의 크기</h3>
+          <ul>
+            <li><p>워드 크기(word size)와 데이터 정렬(data alignment)</p></li>
+            <li>
+              <p>
+                64비트 머신에서 컴파일한 프로그램이 32비트머신에서 작동할 수
+                없는 이유
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.3 주소지정과 바이트 순서</h3>
+          <ul>
+            <li><p>멀티 바이트 객체는 연속된 바이트에 저장된다</p></li>
+            <li>
+              <p>객체의 주소는 사용된 바이트의 최소 주소로 정한다</p>
+            </li>
+            <li>
+              <p>리틀 엔디안 (little endian)</p>
+            </li>
+            <li>
+              <p>빅 엔디안 (big endian)</p>
+            </li>
+            <li>
+              <p>바이트 순서가 중요한 이유</p>
+              <ul>
+                <li>
+                  <p>네트워크 수신/송신 시 바이트 순서가 뒤바뀌는 경우</p>
+                </li>
+                <li><p>정수 데이터를 나타내는 바이트들을 살펴볼 때</p></li>
+                <img src="/static/20250523/data_lookover.jpg" , height="300" />
+                <li>
+                  <p>
+                    프로그램이 일반적인 타입 시스템을 우회하여 작성될 때(type
+                    casting, Union)
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>
+                프로그램 객체들의 바이트 표시를 출력하는 코드를 통해 출력된
+                결과물을 보고 알 수 있었던 것들
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    숫자 12,345의 정수 데이터와 부동소수점 데이터는 서로 상당히
+                    다른 바이트 패턴을 가지지만 일치하는 비트 패턴이 있는 이유
+                  </p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.4 스트링의 표시</h3>
+          <ul>
+            <li>
+              <p>
+                C에서 string은 null(값 0을 갖는) 문자로 종료하는 문자열로
+                인코딩된다
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.5 코드의 표현</h3>
+          <ul>
+            <li>
+              <p>
+                같은 C 코드라도 시스템마다 생성되는 기계어는 다르며, 바이너리
+                프로그램은 대부분 이식 불가능하다. 컴퓨터는 프로그램을 단지
+                바이트의 나열로 본다.
+              </p>
+              <ul>
+                <li>
+                  <p>기계는 C 코드가 뭔지 모르고</p>
+                </li>
+                <li>
+                  <p>어떤 변수 이름을 썼는지도 모르고</p>
+                </li>
+                <li>
+                  <p>컴파일된 결과 바이트만을 해석해서 실행할 뿐이다</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.6 부울 대수</h3>
+          <ul>
+            <li><p>비트 벡터의 개념: w비트짜리 0과 1의 배열</p></li>
+            <li>
+              <p>논리 연산</p>
+              <ul>
+                <li><p>~p: not</p></li>
+                <li><p>p & q: and</p></li>
+                <li><p>p | q: or</p></li>
+                <li><p>p ^ q: xor</p></li>
+              </ul>
+            </li>
+            <li>
+              <p>비트 수준 연산자</p>
+              <ul>
+                <li><p>~: not</p></li>
+                <li><p>&: and</p></li>
+                <li><p>|: or</p></li>
+                <li><p>^: xor</p></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.7 C에서의 비트 수준 연산</h3>
+          <ul>
+            <li>
+              <p>
+                C언어의 비트 연산자는 하드웨어 레벨까지 제어할 수 있는 강력한
+                도구이다
+              </p>
+            </li>
+            <li>
+              <p>
+                특히 마스킹은 하위 비트를 추출하거나, 특정 비트만 조작할 때
+                유용하다
+              </p>
+            </li>
+            <li>
+              <p>
+                비트 연산을 이해하려면 16진수 -> 2진수 변환을 통한 분석이 가장
+                효과적이다
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.8 C에서의 논리 연산</h3>
+          <ul>
+            <li>
+              <p>
+                C언어에서의 논리 연산자는 ||(or), &&(and), !(not) 세 가지를
+                제공한다.
+              </p>
+            </li>
+            <li>
+              <p>
+                0이 아닌 값을 true, 0을 false로 간주함. 이는 정수 값 전체를
+                boolean처럼 해석하는 C언어의 특징임.
+              </p>
+            </li>
+            <ul>
+              <li><p>if (5) -> true</p></li>
+              <li><p>if (0) -> false</p></li>
+            </ul>
+            <li>
+              <p>
+                bit연산은 피연산자가 0 또는 1로 제한된 특수한 경우에만 논리
+                연산과 같은 결과를 냄
+              </p>
+              <ul>
+                <li><p>1 & 0 -> 0, 1 && 0 -> 0 동일함</p></li>
+                <li><p>3 && 6 -> 2, 3 && 6 -> 1 다름</p></li>
+              </ul>
+            </li>
+            <li>
+              <p>
+                비트 연산은 전체 비트 기준, 논리 연산은 값 전체의 참/거짓만
+                판단함.
+              </p>
+            </li>
+          </ul>
+          <h4>snack 🥨 - python에서는 division by zero를 어떻게 막는가</h4>
+          <ul>
+            <li>
+              <p>cpython 레포지토리의 floatobject.c 파일에 가보십시오...</p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>2.1.9 C에서의 쉬프트 연산</h3>
+          <ul>
+            <li>
+              <p>
+                C언어는 비트 패턴을 왼쪽 또는 오른쪽으로 이동시키는 시프트
+                연산자(shift operator)를 제공한다.
+              </p>
+            </li>
+            <ul>
+              <li>
+                <p><<: left shift</p>
+              </li>
+              <li>
+                <p>>>: right shift</p>
+              </li>
+            </ul>
+            <li>
+              <p>shift operation의 각 피연산자는 정수형이어야한다.</p>
+            </li>
+            <li>
+              <p>
+                shift 값은 0이상 비트수-1 이하의 값이어야 한다. (비트 수: 8비트,
+                32비트 등)
+              </p>
+            </li>
+            <li>
+              <p>
+                shift operation은 좌측 결합성을 가진다. (복합 shift연산은
+                앞에서부터 차례로 실행된다.)
+              </p>
+            </li>
+            <li>
+              <p>
+                right shift operation은 두가지 의미가 있다. C에서는 signed일때
+                어떻게 연산을 진행할지 명확하지 않다.
+              </p>
+              <ul>
+                <li>
+                  <p>logical shift: 왼쪽에 0을 채움</p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      unsinged type에 적용됨. 부호와 무관한 순수한 비트 이동임.
+                    </p>
+                  </li>
+                </ul>
+                <li>
+                  <p>
+                    arithmetic shift: 왼쪽에 부호 비트(최상위 비트)를 복제해서
+                    채움
+                  </p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      signed type애서 유용함. 부호 비트를 유지하고 음수라면 1로,
+                      양수라면 0으로 채움
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      이는 음수 값을 오른쪽으로 나누는 것처럼 2로 나누기 효과를
+                      주고, arithmetic shift는 정수의 부호를 유지하면서 계산하게
+                      해준다.
+                    </p>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li>
+              <p>
+                C 표준은 signed type 정수의 right shift operation 방식(logical
+                vs arithmetic)을 정확히 정의하지 않고 있다.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    대신 다음과 같이 작성되어있다. -
+                    <a
+                      href="https://port70.net/~nsz/c/c11/n1570.html#6.5.7:~:text=If%20E1%20has%20a%20signed%20type%20and%20a%20negative%20value%2C%20the%20resulting%20value%20is%20implementation%2Ddefined."
+                      >If E1 has a signed type and a negative value, the
+                      resulting value is implementation-defined.</a
+                    >
+                    (E1이 부호 있는 타입이고 음수 값인 경우, 결과는 구현
+                    정의이다.)
+                  </p>
+                </li>
+                <li>
+                  <p>이에 따라 C에서는 >> 연산은 구현에 따라 달라질 수 있다.</p>
+                </li>
+                <li>
+                  그렇다고 해도 실제로 대부분의 컴파일러/하드웨어 조합은 signed
+                  data에 대해 logical shift operation을 사용한다. (하지만
+                  명시적으로 정의된 것이 아니라 위험하다.)
+                </li>
+                <li>
+                  <p>
+                    반면에 unsigned data에 대해 >> 연산은 반드시 logical
+                    shift이어야하고, 이는 unsigned가 부호가 없기 때문에 부호를
+                    유지할 필요가 없기 때문이다.
+                  </p>
+                </li>
+                <li>
+                  C와는 달리 Java에서는 >> 연산을 명확하게 정의해주고 있다.
+                </li>
+                <ul>
+                  <li><p>Java에서 x >> k는 arithmetic shift</p></li>
+                  <li><p>Java에서 x >>> k는 logical shift</p></li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
