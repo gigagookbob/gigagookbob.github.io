@@ -270,6 +270,42 @@
                 32비트 등)
               </p>
             </li>
+            <ul>
+              <li><p>보충설명</p></li>
+              <ul>
+                <li>
+                  <p>
+                    자료형의 비트 수보다 더 큰 비트 수로 시프트 연산을 할 때, C
+                    표준에서는 어떻게 되는지 명확히 정의하지 않고 있다.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    예를 들어 32비트 자료형을 32비트 또는 그 이상만큼 shift하는
+                    것은
+                    <a href="https://port70.net/~nsz/c/c11/n1570.html#6.5.7p3"
+                      >정의되지 않은 동작(undefined behavior)</a
+                    >이다. (연산 결과가 동일하게 보장되지 않아 시스템마다 결과가
+                    다를 수 있다.)
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    이에 따라 많은 컴퓨터에서는 시프트 양(k)에서 해당 자료형의
+                    비트(w)를 modular 연산을 한 값을 실제 shift 값으로 사용한다.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <a
+                      href="https://docs.oracle.com/javase/specs/jls/se24/html/jls-15.html#jls-15.19"
+                      >Java에서는 아예 명시적으로 k mod w 를 사용하라고
+                      되어있음.
+                    </a>
+                  </p>
+                </li>
+              </ul>
+            </ul>
             <li>
               <p>
                 shift operation은 좌측 결합성을 가진다. (복합 shift연산은
