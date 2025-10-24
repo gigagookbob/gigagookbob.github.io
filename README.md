@@ -1,3 +1,3 @@
-# GigaGukBab.github.io
+# gigagookbob.github.io
 
 TIL on Krafton Jungle 9th
